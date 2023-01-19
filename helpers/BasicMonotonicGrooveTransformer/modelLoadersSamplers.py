@@ -1,7 +1,7 @@
 #  Copyright (c) 2022. \n Created by Behzad Haki. behzad.haki@upf.edu
 
 import torch
-from model.Base.BasicGrooveTransformer import GrooveTransformerEncoder
+from ...model.Base.BasicGrooveTransformer import GrooveTransformerEncoder
 from logging import getLogger
 import numpy as np
 
@@ -177,7 +177,8 @@ def strip_note_from_hvo(h, v, o, drum_map):
                 "pitch": voice_pitches[ix],
                 "velocity": np.round(v[0, hit_ix, ix].detach().numpy(), 2),
                 "offset": np.round(o[0, hit_ix, ix].detach().numpy(), 2),
-                "time": hit_ix * 0.25 + o[0, hit_ix, ix] * 0.25 / 2
+                "time": hit_ix * 0.25 + o[0, hit_ix, ix] * 0.25 / 2,
+                "quantizedTime": hit_ix * 0.25
                 }
             notes.append(note)
 
