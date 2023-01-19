@@ -177,7 +177,8 @@ def strip_note_from_hvo(h, v, o, drum_map):
                 "pitch": voice_pitches[ix],
                 "velocity": np.round(v[0, hit_ix, ix].detach().numpy(), 2),
                 "offset": np.round(o[0, hit_ix, ix].detach().numpy(), 2),
-                "time": hit_ix * 0.25 + o[0, hit_ix, ix] * 0.25 / 2
+                "time": hit_ix * 0.25 + o[0, hit_ix, ix] * 0.25 / 2,
+                "quantizedTime": hit_ix * 0.25
                 }
             notes.append(note)
 
